@@ -1,8 +1,15 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <meta http-equiv="refresh" content="0; url=./index.html">
+    <meta charset="utf-8">
+    <title>Redirecting...</title>
+    <script type="text/javascript">
+      const redirectToIndex = () => {
+        const pathname = window.location.pathname.replace('/site-redesign-react', ''); 
+        window.location.replace(`./index.html#${pathname}`);
+      };
+      redirectToIndex();
+    </script>
   </head>
-  <body>
-  </body>
+  <body></body>
 </html>
