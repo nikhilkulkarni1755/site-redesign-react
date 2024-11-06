@@ -4,11 +4,14 @@
     <meta charset="utf-8">
     <title>Redirecting...</title>
     <script type="text/javascript">
-      const redirectToIndex = () => {
-        const pathname = window.location.pathname.replace('/site-redesign-react', ''); 
-        window.location.replace(`./index.html/#${pathname}`);
-      };
-      redirectToIndex();
+      // Redirect to index.html only if not already in a hash URL format
+      (function () {
+        const pathname = window.location.pathname.replace('/site-redesign-react', '');  // Adjust '/site-redesign-react' to your repo name
+        if (!window.location.hash) {
+          // Redirect to the hashed URL path to avoid the infinite loop
+          window.location.replace(`./index.html#${pathname}`);
+        }
+      })();
     </script>
   </head>
   <body></body>
