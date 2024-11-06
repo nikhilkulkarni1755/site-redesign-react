@@ -10,7 +10,8 @@
         if (!window.location.hash) {
         // Redirect to the hashed URL path to avoid the infinite loop
         //   site-redesign-react/index.html/#//blog
-          window.location.replace(`./index.html/#${pathname}`);
+        //   window.location.replace(`./index.html/#${pathname}`);
+        window.location.replace(`.${pathname}`);
         }
       })();
     </script>
