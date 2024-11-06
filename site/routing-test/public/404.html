@@ -6,14 +6,24 @@
     <script type="text/javascript">
       // Redirect to index.html only if not already in a hash URL format
       (function () {
-        const pathname = window.location.pathname.replace('/site-redesign-react', '');  // Adjust '/site-redesign-react' to your repo name
-        if (!window.location.hash) {
-        // Redirect to the hashed URL path to avoid the infinite loop
-        //   site-redesign-react/index.html/#//blog
-        //   window.location.replace(`./index.html/#${pathname}`);
-        window.location.replace(`.${pathname}`);
+        // const pathname = window.location.pathname.replace('/site-redesign-react', '');  // Adjust '/site-redesign-react' to your repo name
+        // if (!window.location.hash) {
+        // // Redirect to the hashed URL path to avoid the infinite loop
+        // //   site-redesign-react/index.html/#//blog
+        // //   window.location.replace(`./index.html/#${pathname}`);
+        // window.location.replace(`.${pathname}`);
+        var pathSegmentsToKeep = 0;
+
+        var l = window.location;
+        l.replace(
+            l.protocol + '//' + l.hostname + (l.port ? ':' + l.port : '') +
+            l.pathname.split('/').slice(0, 1 + pathSegmentsToKeep).join('/') + '/?/' +
+            l.pathname.slice(1).split('/').slice(pathSegmentsToKeep).join('/').replace(/&/g, '~and~') +
+            (l.search ? '&' + l.search.slice(1).replace(/&/g, '~and~') : '') +
+            l.hash
+        );
         }
-      })();
+      )();
     </script>
   </head>
   <body></body>
