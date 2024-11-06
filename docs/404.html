@@ -9,7 +9,7 @@
         const pathname = window.location.pathname.replace('/site-redesign-react', '');  // Adjust '/site-redesign-react' to your repo name
         if (!window.location.hash) {
           // Redirect to the hashed URL path to avoid the infinite loop
-          window.location.replace(`./index.html#${pathname}`);
+          window.location.replace(`./index.html#/${pathname}`);
         }
       })();
     </script>
