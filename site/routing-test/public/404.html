@@ -83,7 +83,9 @@ Claude solution above
   <body></body>
 </html> -->
 
-<!DOCTYPE html>
+<!-- hashrouter solution -->
+
+<!-- <!DOCTYPE html>
 <html>
 <head>
   <meta http-equiv="refresh" content="0; url=./index.html">
@@ -98,4 +100,28 @@ Claude solution above
 </head>
 <body>
 </body>
+</html> -->
+
+<!-- browserrouter solution -->
+
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Redirecting...</title>
+  <script>
+    (function () {
+      // Check if URL already has a hash
+      if (!window.location.hash) {
+        // Remove '/site-redesign-react' from path and add hash for BrowserRouter
+        const pathWithoutRepo = window.location.pathname.replace('/site-redesign-react', '');
+        const newUrl = `${window.location.origin}/site-redesign-react/index.html#${pathWithoutRepo}`;
+        window.location.replace(newUrl);
+      }
+    })();
+  </script>
+</head>
+<body>
+</body>
 </html>
+
