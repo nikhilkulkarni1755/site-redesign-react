@@ -1,5 +1,51 @@
 <!-- <!DOCTYPE html>
 <html>
+<head>
+    <meta charset="utf-8">
+    <title>Redirecting...</title>
+    <script>
+        // Get the current URL parameters
+        const loc = window.location;
+        const search = loc.search.slice(1);
+        const params = new URLSearchParams(search);
+        const path = params.get('path') || '';
+        
+        // Get the repository name from the pathname
+        const pathSegments = loc.pathname.split('/');
+        const repoName = pathSegments[1];  // Second segment is repo name
+        
+        // Construct the redirect URL
+        const redirectUrl = loc.origin + 
+            '/' + repoName + 
+            '/#' + (path ? '/' + path : '');
+        
+        // Redirect only if we're not already in a redirect loop
+        if (!sessionStorage.getItem('redirected')) {
+            sessionStorage.setItem('redirected', 'true');
+            window.location.replace(redirectUrl);
+        } else {
+            // If we've already redirected, show an error message
+            document.body.innerHTML = 'Error: Redirect loop detected. Please try refreshing the page.';
+            // Clear the redirect flag after a short delay
+            setTimeout(() => {
+                sessionStorage.removeItem('redirected');
+            }, 1000);
+        }
+    </script>
+</head>
+<body>
+    Redirecting...
+</body>
+</html> -->
+
+<!-- 
+Claude solution above 
+-->
+
+
+
+<!-- <!DOCTYPE html>
+<html>
   <head>
     <meta charset="utf-8">
     <title>Redirecting...</title>
