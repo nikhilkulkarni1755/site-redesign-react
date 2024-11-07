@@ -1,5 +1,5 @@
-// import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
-import { HashRouter, Routes, Route, Link } from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
+// import { HashRouter, Routes, Route, Link } from "react-router-dom";
 
 import Blog from "./pages/Blog";
 import Resume from "./pages/Resume";
@@ -10,8 +10,8 @@ function App() {
   // const baseUrl = process.env.NODE_ENV === "production" ? `/${repoName}` : "";
 
   return (
-    // <Router basename="/site-redesign-react">
-    <HashRouter>
+    <Router basename="/site-redesign-react">
+      {/* <HashRouter> */}
       <nav className="text-center py-4 bg-gray-800 text-white">
         <ul className="flex justify-center space-x-4">
           <li>
@@ -32,8 +32,8 @@ function App() {
           <Route path="/blog" element={<Blog />} />
         </Routes>
       </div>
-      {/* </Router> */}
-    </HashRouter>
+      {/* </HashRouter> */}
+    </Router>
   );
 }
 
